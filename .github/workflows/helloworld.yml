@@ -1,5 +1,5 @@
 name: "hello world workflow"
-
+#controls when the workflow will run. This workflow will run when a push is made to the master or production branch.
 on:
   push:
     branches:

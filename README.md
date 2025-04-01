@@ -1,1 +1,3 @@
-welcome to the page of github action workflows setup
+welcome to the Sample of github action workflows setup
+
+added work flow
