@@ -4,12 +4,21 @@ on:
     branches:
       - master # branch name
       - test
+  pull_request: # Event: whenever a pull request is made to the repository on the master branch
+    branches:
+      - master # branch name    
 
 jobs:
     on-push: # job name
         runs-on: ubuntu-latest # the pipeline will run on the latest version of ubuntu
         steps: # steps to be executed in the job
-          - name: "Running on master push" # name of the step
-            run: echo "Running on master push" # command to be executed
+          - name: "Running on master/test push" # name of the step
+            run: echo "Running on master/test push" # command to be executed
+
+    on-pull-request: #job name
+        runs-on: ubuntu-latest # the pipeline will run on the latest version of ubuntu
+        steps: # steps to be executed in the job
+          - name: "Running on pull request" # name of the step
+            run: echo "Running on pull request" # command to be executed  
 
               
