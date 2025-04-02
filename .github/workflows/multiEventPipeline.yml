@@ -25,4 +25,11 @@ jobs:
           - name: "Running on pull request" # name of the step
             run: echo "Running on pull request" # command to be executed  
 
+    on-workflow-dispatch: #job 3
+        if: github.event_name == 'workflow_dispatch' # condition to check if the event is a workflow dispatch event
+        runs-on: ubuntu-latest # the pipeline will run on the latest version of ubuntu
+        steps: # steps to be executed in the job
+          - name: "Running on workflow dispatch" # name of the step
+            run: echo "Running on workflow dispatch" # command to be executed        
+
               
