@@ -6,7 +6,10 @@ on:
       - test
   pull_request: # Event: whenever a pull request is made to the repository on the master branch
     branches:
-      - master # branch name   
+      - master # branch name  
+    types:
+      - closed # type of pull request event 
+
   workflow_dispatch: # Event: whenever a workflow dispatch is made to the repository on the master branch
      
 
@@ -24,6 +27,14 @@ jobs:
         steps: # steps to be executed in the job
           - name: "Running on pull request" # name of the step
             run: echo "Running on pull request" # command to be executed  
+
+    on-pull-request-closed:
+        if: github.event.action == 'pull_request' && github.event.action == 'closed' # condition to check if the event is a pull request closed event
+        runs-on: ubuntu-latest # the pipeline will run on the latest version of ubuntu
+        steps: # steps to be executed in the job
+          - name: "Running on pull request closed" # name of the step
+            run: echo "Running on pull request closed" # command to be executed
+            
 
     on-workflow-dispatch: # job 3
         if: github.event_name == 'workflow_dispatch' # condition to check if the event is a workflow dispatch event
